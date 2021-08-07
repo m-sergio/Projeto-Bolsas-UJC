@@ -1,0 +1,221 @@
+
+body{
+
+	font-family: "Trebuchet MS", tahoma, arial;
+	background-color:#EE9C28;
+}
+
+#formulario{
+	width: 80%;
+	margin:7% auto;
+	margin-bottom: 40%;
+	position: relative;
+	
+	
+}
+
+#form{
+	width: 60%;
+	margin:2% auto;
+	position: relative;
+	
+	
+}
+
+
+
+#formulario h2, #formulario h3{
+	font: 20px "Trebuchet MS",  tahoma, arial;
+	color: #2574a9;
+	width: 100%;
+	float: left;
+	text-align: left;
+	
+}
+#formulario h3{
+	color: #333;
+	font-size: 17px;
+}
+
+#formulario fieldset{
+	background: white;
+	border:0 none;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+
+	box-shadow: 0 0 15px 1px rgba(0,0,0, 0.4);
+	padding:2% 2%;
+	
+
+	box-sizing: border-box;
+	width: 80%;
+	margin: 0 10%;
+	position: absolute;
+}
+
+#form fieldset{
+	background: white;
+	border:0 none;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+
+	box-shadow: 0 0 15px 1px rgba(0,0,0, 0.4);
+	padding:2% 2%;
+
+	box-sizing: border-box;
+	width: 80%;
+	margin: 0 10%;
+	position: absolute;
+}
+
+
+.infoCad{
+	text-align: center;
+	font:18px "Trebuchet MS", tahoma, arial;
+	color: #3974A9;
+	font-weight:bold;
+	text-transform: uppercase;
+	margin-top: 5%;
+	
+}
+
+
+.form-row{
+	margin-top: -1%;
+	color: #000000;font-weight: bold;
+
+}
+hr{
+	margin: 0.5%;
+}
+
+#formulario fieldset:not(:first-of-type){
+	display: none;
+}
+
+#formulario input, #formulario textarea{
+	padding: 2%;
+	border:1px solid rgba(38,128,101,0.9);
+	border-radius: 4px;
+	-moz-border-radius:4px;
+	-webkit-border-radius: 4px;
+	outline: none;
+	box-sizing: border-box;
+	font:14px "Trebuchet MS", tahoma, arial;
+	color: black;
+	margin-bottom: -2%;
+
+}
+#formulario select{
+	
+	border:1px solid rgba(38,128,101,0.9);
+	border-radius: 4px;
+	-moz-border-radius:4px;
+	-webkit-border-radius: 4px;
+	outline: none;
+	box-sizing: border-box;
+	font:14px "Trebuchet MS", tahoma, arial ;
+	color: black;
+	margin-bottom: -2%;
+
+}
+
+
+#formulario .acao{
+	width: 12%;
+	background:rgba(38,128,101,0.9);
+	color: white;
+	text-transform: uppercase;
+	font-weight: bold;
+	padding: 10px;
+	float: left;
+	margin-right: 3%; 
+
+}
+
+
+#formulario fieldset input#acaoF1{
+	width: 22%;
+	 margin-left: 78%;
+	 margin-top: 4px;
+	 padding: 10px 0px 10px 0px;
+
+}
+
+#formulario fieldset input#acaoCad{
+	width: 22%;
+
+}
+
+
+
+
+
+
+
+#formulario .acao:hover{
+	background:rgba(52,177,140,0.9);
+	cursor: pointer; 
+}
+
+#formulario #progress{
+	margin-bottom: 3%;
+	overflow: hidden;
+	counter-reset: step;
+	text-align: center;
+	margin-top: -3%;
+}
+
+#formulario #progress li{
+	list-style: none;
+	color: white;
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 10px;
+	float: left;
+	width: 20%;
+	position: relative;
+}
+
+
+#formulario #progress li:before{
+	content: counter(step);
+	counter-increment: step;
+	width: 20px;
+	display: block;
+	line-height: 20px;
+	background: white;
+	color: #333;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+
+	margin: 0 auto 10px auto;
+}
+
+#formulario #progress li:after{
+	content: '';
+	width: 100%;
+	background: white;
+	height: 2px;
+	position: absolute;
+	top: 9px;
+	left: -50%;
+	z-index: -1;
+}
+
+#formulario #progress li:first-child:after{
+	content: none;
+
+}
+
+#formulario #progress li.ativo:before,#formulario #progress li.ativo:after{
+	background:rgba(40,208,141,0.9);
+	color: white;
+	text-shadow: 0 1px 0;
+
+}
+
+

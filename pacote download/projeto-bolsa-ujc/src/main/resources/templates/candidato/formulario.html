@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Tela de Formulario</title>
+
+    <!-- Custom fonts for this template-->
+    <link th:href="@{/bootAdd/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+     <!-- Custom styles for this template-->
+    
+   
+    
+    <link th:href="@{/css/sas-admin-2.min.css}" rel="stylesheet">
+   <link th:href="@{/css/indexSm.css}" rel="stylesheet" type="text/css" >
+    <link  th:href="@{/css/style.css}" rel="stylesheet" type="text/css">
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+
+  
+   
+
+
+
+</head>
+
+<body id="page-top">
+
+
+                <!-- Topbar -->
+            
+                <nav class="navbar navbar-expand navbar-dark  topbar mb-4 static-top shadow" style="background-color: #2574a9;">
+
+                    <!-- Topbar Navbar -->
+                     <h3 style="font-family: Arial; color: #EE9C28; font-weight:bold ">SIGE-CAB</h3>
+                    <ul class="navbar-nav ml-auto">
+
+                        
+            <li class="nav-item dropdown">
+                 
+                                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                                </button>
+
+                         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                            <div class="navbar-nav">
+                                <a class="nav-link active" aria-current="page" th:href="@{cadastrar}">Candidatura</a>
+                                 <a class="nav-link" th:href="@{consultar}" >Consulta</a>
+                            </div>
+                            
+                        </div>
+                        </li>
+                        
+                        
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown ">
+                            
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" sec:authorize="isAuthenticated()">
+                                <span class="mr-2 d-none d-lg-inline" sec:authentication="name" >Manuel Sérgio</span>
+                                <img class="img-profile rounded-circle" th:src="@{/img/undraw_profile.svg}">
+                            </a>
+
+                          
+
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" th:href="@{configPerfil}">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Configurações de Perfil
+                                </a>
+                                
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Sair
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+
+                </nav>
+            
+                <!-- End of Topbar -->
+
+
+					
+                            
+                    <form id="formulario" method="POST" enctype="multipart/form-data" name="formulario" action="#"  th:object="${candidato}" >
+
+                        <ul id="progress">
+                            <li class="ativo">Dados do Candidato</li>
+                            <li> Dados da Bolsa</li>
+                            <li> Situação Escolar</li>
+                            <li>Finalizar a candidatura</li>
+                        </ul>
+                           
+                        
+                
+                        <fieldset >
+                            <h2>Filiação</h2>
+                             <div class="form-row" >
+                                <div class="form-group col-md-6">
+                                <label for="txtnome">Nome do Pai</label>
+                                <input type="text" id="nomePai" class="form-control form-control-sm leftcomponent" 
+                                style="width: 60%" th:field="*{nomePai}" />
+                                </div>
+
+
+                             <div class="form-group col-md-6">
+                                <label for="txtDataNasciemento" class="leftcomponent"> Data de Nascimento do Pai</label>
+                                <input type="date" 
+                                class="form-control form-control-sm leftcomponent data" style="width: 60%" th:field="*{dataNascimentoPai}" id="dataNascimentoPai" />
+                                                
+                                                
+                            </div>
+                        </div>
+                         <div  class="form-row" >
+                                <div class="form-group col-md-6">
+                                <label for="dpProvincia" class="leftcomponent">Profissão</label>
+                                <select  class="form-control form-control-sm" 
+                                style="width: 60%" th:field="*{profissaoPai}" id="profissaoPai">
+                                   <option selected="selected" value="Funcioanario Publico">Funcioanario Publico</option>
+                                    <option value="Funcionario Privado">Funcionario Privado</option>
+                                    <option value="Conta Propria">Conta Propria</option>
+                                    <option value="Reformado">Reformado</option>
+                                    <option value="Desempregado">Desempregado</option>
+       
+                             </select>
+                                </div>
+
+                        </div>
+                         <div  class="form-row" style="font-weight:bold " >
+                                <div class="form-group col-md-6">
+                                <label for="txtnome">Entidade Patronal</label>
+                                <input  type="text"  class="form-control form-control-sm leftcomponent" 
+                                style="width: 60%"  th:field="*{entidadePatronalPai}" id="entidadePatronalPai" />
+                                </div>
+
+
+                            <div class="form-group col-md-6">
+                            <label for="txtMobile" class="leftcomponent">Número de Celular do Pai</label>
+                            <input  type="text"  
+                            class="form-control form-control-sm" style="width: 60%" th:field="*{contactoPatronalPai}" id="contactoPatronalPai" />
+                            </div>
+                        </div>
+                        <hr>
+                        
+                         <div  class="form-row" style="font-weight:bold " >
+                                <div class="form-group col-md-6">
+                                <label for="txtnome">Nome da Mãe</label>
+                                <input  type="text" class="form-control form-control-sm leftcomponent" 
+                                style="width: 60%" th:field="*{nomeMae}" id="nomeMae" />
+                                </div>
+
+
+                             <div class="form-group col-md-6">
+                                <label for="txtDataNasciemento" class="leftcomponent"> Data de Nascimento da Mãe</label>
+                                <input type="date" 
+                                class="form-control form-control-sm leftcomponent data" style="width: 60%" th:field="*{dataNascimentoMae}" id="dataNascimentoMae" />
+                       
+                            </div>
+                        </div>
+                         <div  class="form-row" style="font-weight:bold " >
+                               <div class="form-group col-md-6">
+                                <label for="dpProvincia" class="leftcomponent">Profissão</label>
+                                <select id="profissaoMae"  class="form-control form-control-sm" 
+                                style="width: 60%" th:field="*{profissaoMae}" >
+                                   <option selected="selected" value="Funcioanario Publico">Funcioanario Publico</option>
+                                    <option value="Funcionario Privado">Funcionario Privado</option>
+                                    <option value="Conta Propria">Conta Propria</option>
+                                    <option value="Reformado">Reformado</option>
+                                    <option value="Desempregado">Desempregado</option>
+                  
+                             </select>
+                                </div>
+
+                        </div>
+                         <div class="form-row" style="font-weight:bold " >
+                                <div class="form-group col-md-6">
+                                <label for="txtnome">Entidade Patronal</label>
+                                <input  type="text"  class="form-control form-control-sm leftcomponent" 
+                                style="width: 60%" th:field="*{entidadePatronalMae}" id="entidadePatronalMae" />
+                                </div>
+
+
+                            <div class="form-group col-md-6">
+                            <label for="txtMobile" class="leftcomponent">Número de Celular da Mãe</label>
+                            <input  type="text"  class="form-control form-control-sm" 
+                            	style="width: 60%" th:field="*{contactoPatronalMae}" id="contactoPatronalMae"/>
+                        </div>
+                        </div>
+                        <input type="button" name="next1" class="next acao" id="acaoF1" value="Proximo">
+                    </fieldset>
+                             
+                            
+                        <fieldset id="fmBolsa">
+                            <h2>Tipo de Bolsa</h2>
+                             <div class="form-row"  >
+                                <div class="form-group col-md-6">
+                              
+                                <select  class="form-control form-control-sm" 
+                                style="width: 60%" th:field="*{tipoBolsa}" id="tipoBolsa">
+                                    <option selected="selected" value="Bolsa Completa">Bolsa Completa</option>
+                                    <option value="Bolsa Parcial - Subsídio">Bolsa Parcial - Subsídio</option>
+                    </select>
+                                </div>
+                            </div>
+                            <input type="button" name="prev" class="prev acao" value="Anterior">
+                            <input type="button" name="next2" class="next acao" value="Proximo">
+
+                        </fieldset>
+
+			                        <fieldset>
+			                         <h2>Escola Pré-Universitária</h2>
+			                           
+			                           <div class="form-row" style="font-weight:bold ">
+			                           <div class="form-group col-md-6">
+			                                <label for="dpProvincia" class="leftcomponent">Província de Frequência</label>
+			                                <select class="form-control form-control-sm" 
+			                                style="width: 60%" th:field="*{provinciaFrequencia}" id="provinciaFrequencia" >
+			                                <option value="">Selecione</option>
+			                        <option th:each="p : ${provincias}"  th:value="${p.designacao}" th:text="${p.designacao}">Maputo</option>
+			                    
+			                             </select>
+			                                </div>
+
+                            <div class="form-group col-md-4">
+                                <label for="dpProvincia" class="leftcomponent">Escola de Frequência</label>
+                                <select  class="form-control form-control-sm" 
+                                style="width: 90%" th:field="*{escolaFrequencia}" id="escolaFrequencia" >
+                                 <option value="">Selecione</option>
+                                    <option  th:each="e : ${escolas}" th:value="${e.nome}" th:text="${e.nome}">ESNM</option>
+                                 
+                             </select>
+                            </div>
+                             
+                            <div class="form-group col-md-4">
+                                <label for="dpProvincia" class="leftcomponent">Ano de Conclusão</label>
+                                <select id="anoConclusao"  
+                                   class="form-control form-control-sm" style="width: 60%" th:field="*{anoConclusao}">
+                                    <option  value="2016">2016</option>
+                                    <option value="2017">2017</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2020">2020</option>
+
+                             </select>
+                            </div>
+								
+                           
+                                </div>
+                             <input type="button" name="prev" class="prev acao" value="Anterior">
+                            <input type="button" name="next3" class="next acao" value="Proximo">
+                            </fieldset>
+                           
+                           
+                        
+                        <fieldset>
+                            
+                            <div class="alert alert-warning" role="alert">
+                                    Confirme se preencheu devidamente todos os campos!
+                            </div>
+                           
+                         <input type="button" name="prev" class="prev acao" value="Anterior">
+                          <input type="submit"  class="acao" id="acaoCad" value="Submeter Candidatura">
+                        </fieldset>                   
+                    </form>
+                           
+         
+       
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Pronto para sair?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Selecione "Sair" abaixo se você estiver pronto para encerrar sua sessão atual.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                    <a class="btn btn-primary" th:href="@{/candidatura/logout}">Sair</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+
+
+
+  <!-- Bootstrap core JavaScript-->
+    <script th:src="@{/bootAdd/jquery/jquery.min.js}"></script>
+    <script th:src="@{/bootAdd/bootstrap/js/bootstrap.bundle.min.js}"></script>
+
+
+    <!-- Custom scripts for all pages-->
+    <script th:src="@{/js/sas-admin-2.min.js}"></script>
+
+    <!-- Page level plugins -->
+    <script th:src="@{/bootAdd/datatables/jquery.dataTables.min.js}"></script>
+    <script th:src="@{/bootAdd/datatables/dataTables.bootstrap4.min.js}"></script>
+
+    <!-- Page level custom scripts -->
+    <script th:src="@{/js/js_alertSmS/datatables.js}"></script>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" type="text/javascript" ></script>
+    <script  th:src="@{/js/functions.js}" type="text/javascript"></script>
+
+   
+
+
+
+</body>
+
+</html>

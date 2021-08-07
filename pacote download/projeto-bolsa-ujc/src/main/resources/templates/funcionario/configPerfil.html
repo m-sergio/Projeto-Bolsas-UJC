@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Perfil de Configuração</title>
+
+    <!-- Custom fonts for this template-->
+    <link th:href="@{/bootAdd/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+     <!-- Custom styles for this template-->
+    
+   
+    
+    <link th:href="@{/css/sas-admin-2.min.css}" rel="stylesheet">
+   <link th:href="@{/css/indexSm.css}" rel="stylesheet" type="text/css" >
+    <link  th:href="@{/css/style.css}" rel="stylesheet" type="text/css">
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+
+    <script type="text/javascript">
+    $("#telefone1").mask("(+258) 00 0000000");
+    $("#telefone2").mask("(+258) 00 0000000");
+ </script>
+
+   
+
+
+
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper" >
+
+        
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column" >
+
+           <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+            
+                <nav class="navbar navbar-expand navbar-dark  topbar mb-4 static-top shadow" style="background-color: #708ad5;">
+
+                    <!-- Topbar Navbar -->
+                     <h3 style="font-family: Arial; color: #EE9C28; font-weight:bold ">SIGE-CAB</h3>
+                    <ul class="navbar-nav ml-auto">
+
+                        
+            <li class="nav-item dropdown">
+                 
+                     <div class="container-fluid">
+  
+                                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                                </button>
+
+                        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                            <div class="navbar-nav">
+                                <a class="nav-link active" aria-current="page" th:href="@{listarCandidatos}" >Lista de Candidatos</a>
+                                 <a class="nav-link" th:href="@{Relatorios}" >Relatorio das Candidaturas</a>
+                            </div>
+                            
+                        </div>
+                   
+                
+
+                        </li>
+                        
+                        <div class="topbar-divider  d-sm-block"></div>
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown ">
+                           
+                        
+                           <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline ">  Manuel Sérgio</span>
+                                 <img class="img-profile rounded-circle" th:src="@{/img/undraw_profile.svg}">
+                            </a>
+
+                          
+
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                               <a class="dropdown-item" th:href="@{configPerfil}">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Configurações de Perfil
+                                </a>
+                                
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Sair
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+
+                </nav>
+            
+                <!-- End of Topbar -->
+
+               <!-- Begin Page Content -->
+                <div class="container-fluid">
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+
+                        <div class="card-header py-3">
+                            <h4 class="font-weight-bold text-dark">Configurar Perfil 
+                            </h4>  
+                            <div class="pull-direitoo">
+                         <button class="btn btn-primary" type="submit">Salvar Alterações</button>
+                
+                        </div>
+                             
+                     </div>
+
+
+                        <div class="card-body">
+                    <form method="POST" action="proc_editarUsuario.php">
+                            <fieldset>
+                           <legend>Detalhes Pessoais</legend>
+
+                           <p class="col-md-4">
+                            <input type="hidden" name="id"  value="<?php echo  $row_user['id']; ?>">
+                            <input type="text" class="form-control" id="validationDefault01" placeholder="Username" required name="user"  value="MSergio">
+                          </p>
+                        
+                          <p class="col-md-4">
+                            <input type="text" class="form-control" id="validationDefault01" placeholder="Primeiro nome" required name="pNome"  value="Manuel"> 
+                          </p>
+
+                          <p class="col-md-4">
+                            <input type="text" class="form-control" id="validationDefault02" placeholder="Sobrenome" required name="sNome"  value="Sergio">
+                          </p>
+
+                          <p class="col-12" >
+                            <button class="btn btn-primary" type="submit" name="alt">Alterar</button>
+                          </p>
+                        
+
+                   </fieldset>
+                   </form>
+
+
+                   <form method="POST" action="proc_editarUsuarioSenha.php">
+                            <fieldset>
+                           <legend>Alterar Senha</legend>
+                             
+                        <input type="hidden" name="id"  value="<?php echo  $row_user['id']; ?>">
+                          <p class="col-md-4">
+                            <input type="password" class="form-control" id="validationDefault01" placeholder="Senha Antiga" name="senhaAntig" required="">
+                          </p>
+
+                          <p class="col-md-4">
+                            <input type="password" class="form-control" id="validationDefault02" placeholder="Nova Senha" name="senhaNova" required="">
+                          </p>
+
+                          <p class="col-md-4">
+                            <input type="password" class="form-control" id="validationDefault02" placeholder="Confirmar nova senha"  name="confSenha" required>
+                          </p>
+                         
+
+                          <p class="col-12">
+                            <button class="btn btn-primary" type="submit" name="alt">Alterar</button>
+                          </p>
+                        
+
+                   </fieldset>
+                   </form>
+                            
+                    </div>
+
+
+
+
+
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; | 2021</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+       </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Selecione "Sair" abaixo se você estiver pronto para encerrar sua sessão atual.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                    <a class="btn btn-primary" href="index_utilizador.php">Sair</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <!-- Bootstrap core JavaScript-->
+    <script th:src="@{/bootAdd/jquery/jquery.min.js}"></script>
+    <script th:src="@{/bootAdd/bootstrap/js/bootstrap.bundle.min.js}"></script>
+
+
+    <!-- Custom scripts for all pages-->
+    <script th:src="@{/js/sas-admin-2.min.js}"></script>
+
+    <!-- Page level plugins -->
+    <script th:src="@{/bootAdd/datatables/jquery.dataTables.min.js}"></script>
+    <script th:src="@{/bootAdd/datatables/dataTables.bootstrap4.min.js}"></script>
+
+    <!-- Page level custom scripts -->
+    <script th:src="@{/js/js_alertSmS/datatables.js}"></script>
+
+</body>
+
+</html>
